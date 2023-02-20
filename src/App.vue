@@ -3,7 +3,7 @@
     <header class="navbar p-2 s-rounded">
       <section class="navbar-section">
         <router-link to="" class="btn btn-link">Home</router-link>
-        <router-link to="" class="btn btn-link">Profile</router-link>
+        <router-link to="/profile" class="btn btn-link">Profile</router-link>
       </section>
       <section class="navbar-center">
         <h1 class="text-bold">Watch🎈Party</h1>
