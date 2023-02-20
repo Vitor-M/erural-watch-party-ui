@@ -10,9 +10,12 @@
     <div class="video-box">
       <div class="video-responsive my-1">
         <iframe
-          v-if="formattedRoom && formattedRoom.video_url"
           class="s-rounded"
-          :src="formattedRoom.video_url"
+          :src="
+            formattedRoom && formattedRoom.video_url
+              ? formattedRoom.video_url
+              : ''
+          "
           allow="autoplay"
           id="video-player"
         ></iframe>
