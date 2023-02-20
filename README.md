@@ -33,3 +33,8 @@ npm run build
 ```sh
 npm run lint
 ```
+## Teste de Funcionalidades
+- Após rodar o projeto, você pode abrir o app em dois navegadores diferentes, cada navegador corresponderá há um usuário diferente.
+- Após definir nome e profile image do usuário, você será apresentado há uma lista de salas disponíveis, ou pode criar sua propria sala.
+- Certifique-se de entrar na mesma sala com ambos os usuários.
+- Por fim pressione o botão **play for everyone** para reproduzir o vídeo para todos os usuários da sessão. para pausar basta clicar no botão novamente. 
