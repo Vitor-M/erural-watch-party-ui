@@ -44,7 +44,7 @@
     <button class="sticky-btn btn btn-success p-fixed" @click="openModal">
       Create a new room
     </button>
-    <RoomEditModal :v-if="showModal" @closeModal="showModal = false" />
+    <RoomEditModal :show="showModal" @closeModal="showModal = false" />
   </div>
 </template>
 

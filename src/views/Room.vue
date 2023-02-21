@@ -27,7 +27,7 @@
               @click="handleVideoState"
               class="btn s-rounded btn-link text-light"
             >
-              {{ videoState.isPlaying ? "Plause" : "Play" }} for everyone
+              {{ videoState.isPlaying ? "Pause" : "Play" }} for everyone
             </button>
             <a class="float-right" @click="openModal"
               ><i class="icon icon-menu text-light text-bold my-1"></i
@@ -35,9 +35,8 @@
           </div>
         </div>
       </div>
-      <!-- <button @click="sendSyncCommand('pause')" class="btn">Pause</button> -->
     </div>
-    <RoomEditModal :v-if="showModal" @closeModal="showModal = false" />
+    <RoomEditModal :show="showModal" @closeModal="showModal = false" />
   </div>
 </template>
 
@@ -132,6 +131,11 @@ export default {
       console.log("Received play command from server");
       videoState.isPlaying = true;
       videoState.currentTime = data.time;
+      console.log(videoState.currentTime);
+      refs.videoPlayer.contentWindow.postMessage(
+        `{"event":"command","func":"seekTo","args":${videoState.currentTime}}`,
+        "*"
+      );
       refs.videoPlayer.contentWindow.postMessage(
         '{"event":"command","func":"playVideo","args":""}',
         "*"
@@ -141,6 +145,10 @@ export default {
       console.log("Received pause command from server");
       videoState.isPlaying = false;
       videoState.currentTime = data.time;
+      refs.videoPlayer.contentWindow.postMessage(
+        `{"event":"command","func":"seekTo","args":${videoState.currentTime}}`,
+        "*"
+      );
       refs.videoPlayer.contentWindow.postMessage(
         '{"event":"command","func":"pauseVideo","args":""}',
         "*"

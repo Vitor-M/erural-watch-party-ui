@@ -85,8 +85,8 @@ export default {
       if (formRoom.id) {
         await store.dispatch("roomStore/updateRoom", formRoom);
       } else {
-        await store.dispatch("roomStore/createRoom", formRoom);
-        router.push("/room");
+        const newRoom = await store.dispatch("roomStore/createRoom", formRoom);
+        router.push({ name: "room", params: { roomId: newRoom.id } });
       }
     };
 

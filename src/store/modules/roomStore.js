@@ -42,6 +42,7 @@ const actions = {
       const response = await axios.post('http://localhost:5000/watch/room', room);
       const data = response.data
       commit('setCurrentRoom', data)
+      return data
     } catch (error) {
       console.error(error);
     }
